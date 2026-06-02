@@ -292,7 +292,7 @@ usuario activo
 
 /* Hover para el botón de guardar */
 .btn-save:hover {  
-    background: #334155;
+  background: #334155;
   transform: translateY(-1px);
 }
 

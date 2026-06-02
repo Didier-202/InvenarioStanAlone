@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="productos.css"> <!-- Enlace al archivo CSS -->
+    <title>Inventario Stand alone</title>
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="app-header">
+            <h1 class="app-title">📦 Inventario</h1>
+        </header>
+        <!-- Formulario para agregar productos al inventario -->
+        <form class="form-card" id="formProducto">
+            <h2 class="form-title">Agregar producto</h2>
+            <div class="form-row">
+                <input type="text" id="nombre" placeholder="Nombre producto" class="form-input">
+                <input type="number" id="precio" placeholder="Precio ($)" step="0.01" class="form-input">
+                <input type="number" id="cantidad" placeholder="Cantidad" class="form-input">
+                <button type="submit" class="btn btn-primary">+ Agregar</button> <!-- Botón para agregar el producto al inventario -->
+            </div>    
+        </form>
+
+        <!-- Tabla para mostrar los productos del inventario -->
+
+        <div class="table-container">
+            <table class="inventory-table" id="tablaProductos">
+                <thead> <!-- Encabezado de la tabla -->
+                    <tr> <!-- Fila del encabezado -->
+                        <th class="col-name">Nombre</th> <!-- Columna para el nombre del producto -->    
+                        <th class="col-price">Precio</th>
+                        <th class="col-cantidad">cantidad</th>
+                        <th class="col-actions">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody > <!-- Cuerpo de la tabla donde se agregarán los productos -->
+                </tbody>
+            </table>
+        </div>
+        <script src="productos.js"></script> <!-- Enlace al archivo JavaScript -->
+    </div>
+</body>
+</html>
