@@ -3,8 +3,21 @@ let indiceEditar = null;
 
 
 // USUARIO ACTIVO
-document.getElementById("usuarioActivo").textContent =
+document.getElementById("usuarioActivo").textContent =  
 localStorage.getItem("usuarioActivo");
+
+//cambio de modulo // 
+
+function mostrarModulo(modulo) {
+  document.getElementById("modUsuarios").style.display = "none";
+  document.getElementById("modProductos").style.display = "none";
+
+  if (modulo === "usuarios") {
+    document.getElementById("modUsuarios").style.display = "block";
+  } else {
+    document.getElementById("modProductos").style.display = "block";
+  }
+}
 
 // =====================
 // CARGAR USUARIOS
@@ -80,11 +93,21 @@ function guardarCambios() {
 // SESIÓN
 // =====================
 
+function cerrarSesion() {
+  localStorage.removeItem("usuarioActivo");
+  window.location.href = "login.html";
+}
 
 // INICIO
 cargarUsuarios();
-cargarProductos();
-mostrarModulo('usuarios');
+
+
+// mostrar productos al cargar la pagina// 
+window.onload = function() {
+  mostrarModulo("productos");  
+}
+
+
 
 
 
