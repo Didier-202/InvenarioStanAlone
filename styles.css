@@ -50,6 +50,29 @@ body {
   font-family:'Inter', Arial, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
+}
+
+/* =========================
+  DASHBOARD
+========================= */
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+} 
+
+/* =========================
+  SIDEBAR
+========================= */
+.sidebar {
+  width: 210px;
+}
+
+/* =========================
+  (MAIN)
+========================= */
+.container {
+  flex: 1;
   padding: 32px 16px;
 }
 
@@ -57,7 +80,7 @@ body {
   LOGIN / REGISTRO
 ========================= */
 
-.container {
+.usuarios {
   max-width: 1200px;  /* Ancho máximo para pantallas grandes */
   margin: 0 auto;
   display: flex;
@@ -119,37 +142,6 @@ body {
 .formInput:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 4px rgba(59,130,246,0.12);
-}
-
-/* =========================
-usuario activo
-========================= */
-.usuarioActivo {
-  text-align: right;
-  margin-bottom: 20px; 
-  margin-right: 20px;
-  cursor: pointer;   /* Cambia el cursor para indicar que es interactivo */
-}
-
-
-/* aliear icono y texto del usuario activo a la derecha*/
-.usuarioActivo h1 {
-  display: inline-block;
-  margin: 0;
-  margin-right: 12px;
-}
-
-.icono {
-  display: inline-block;
-  vertical-align: middle;
-  width: 32px;
-  height: 32px;
-}
-
-/* efecto over usuario activo */
-
-.usuarioActivo:hover{
-  transform: translateY(-2px);
 }
 
 

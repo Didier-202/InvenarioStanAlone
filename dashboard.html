@@ -1,62 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Asegura que la página sea responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asegura que la página sea responsive -->
   <title>Dashboard Inventario</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">  <!-- Fuente Inter para un diseño moderno -->
+  <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS usuarios-->
+  <link rel="stylesheet" href="productos.css"> <!-- Enlace al archivo CSS productos-->
+  <link rel="stylesheet" href="sidebar.css"> <!-- Enlace al archivo CSS sidebar-->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fuente Inter para un diseño moderno -->
 </head>
 
-<body>
+<body class="dashboard-page">
+  <div class="dasboard">
+    <!-- Contenedor principal del dashboard -->
+
+    <!-- BARRA DE NAVEGACIÓN -->
+
+    <nav class="sidebar"> <!-- Barra lateral para navegación -->
+      <div class="sidebar-brand">
+        <h2 class="sidebar-title">Inventario</h2>
+      </div>
+      <div class="cont-sidebar">
+        <button class="btn btn-productos" onclick="mostrarModulo('productos')">productos</button>
+        <!-- Botón para mostrar el módulo de productos -->
+        <button class="btn btn-usuarios" onclick="mostrarModulo('usuarios')">usuarios</button>
+        <!-- Botón para mostrar el módulo de usuarios -->
+      </div>
       <!-- Contenedor usuario activo -->
-      <div class="usuarioActivo">  
-        <svg class="icono" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"> 
+      <div class="usuarioActivo">
+        <!-- Contenedor para mostrar el usuario activo -->
+        <svg class="icono" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>  <!-- Icono de usuario para mostrar el usuario activo -->
-      </svg>
-        <p id="usuarioActivo" class="user"></p>  <!-- Elemento para mostrar el nombre del usuario activo -->
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <p id="usuarioActivo" class="user"></p>
+        <!-- Elemento para mostrar el nombre del usuario activo -->
+        <button class="btn btn-cerrarSesion" onclick="cerrarSesion()">
+          🚪 Cerrar Sesión
+        </button>
+        <!-- Botón para cerrar sesión -->
       </div>
-      
-  <div class="container">
+    </nav>
 
-    <!-- SECCION DE USUARIOS -->
-  
-    <div class="container">  <!-- Contenedor principal -->
-      <header class="header">
-        <h1 class="titulo">Usuarios</h1>    <!-- Título de la sección -->     
-      </header>
+    <main class="container">
+      <!-- SECCION DE USUARIOS -->
 
-      <div class="tableContainer">  <!-- Contenedor para la tabla de usuarios -->
-        <table class="tableUsuarios" >  <!-- Tabla para mostrar los usuarios -->
-          <thead>   <!-- Encabezado de la tabla -->
-            <tr>
-              <th class="colName">Nombre</th>  <!-- Columna para el nombre del usuario... y asi con los demás -->
-              <th class="colDocumento">Documento</th>
-              <th class="colTelefono">Teléfono</th>
-              <th class="colCorreo">Correo</th>
-              <th class="colUsuario">Usuario</th>
-              <th class="colAcciones">Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="tablaUsuarios"></tbody>  <!-- Cuerpo de la tabla donde se cargarán los usuarios dinámicamente desde js-->
-        </table>
-      </div>  
-        
-      <div class="formCard" id="formEditar" style="display:none;">  <!-- Formulario de edición de usuario -->
-        <h3 class="formTitulo">Editar Usuario</h3>  <!-- Título del formulario -->
-        <div class="inputs">  <!-- Contenedor para los campos de entrada del formulario -->
-          <input type="text" id="editNombre" class="formInput">  <!-- Campo para editar el nombre del usuario...  -->
-          <input type="text" id="editDocumento" class="formInput">
-          <input type="text" id="editTelefono" class="formInput">
-          <input type="email" id="editCorreo" class="formInput">
-          <button type="button" class="btn btn-save" onclick="guardarCambios()">+ guardar cambios</button> <!-- Botón para guardar los cambios -->
-        </div>  
-      </div>
-    </div>
-  </div>  
+      <section class="usuarios">
+        <!-- Contenedor principal -->
+        <header class="header">
+          <h1 class="titulo">Usuarios</h1>
+          <!-- Título de la sección -->
+        </header>
 
+        <div class="tableContainer">
+          <!-- Contenedor para la tabla de usuarios -->
+          <table class="tableUsuarios">
+            <!-- Tabla para mostrar los usuarios -->
+            <thead>
+              <!-- Encabezado de la tabla -->
+              <tr>
+                <th class="colName">Nombre</th>
+                <!-- Columna para el nombre del usuario... y asi con los demás -->
+                <th class="colDocumento">Documento</th>
+                <th class="colTelefono">Teléfono</th>
+                <th class="colCorreo">Correo</th>
+                <th class="colUsuario">Usuario</th>
+                <th class="colAcciones">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaUsuarios"></tbody>
+            <!-- Cuerpo de la tabla donde se cargarán los usuarios dinámicamente desde js-->
+          </table>
+        </div>
 
-<script src="dashboard.js"></script>
+        <div class="formCard" id="formEditar" style="display: none">
+          <!-- Formulario de edición de usuario -->
+          <h3 class="formTitulo">Editar Usuario</h3>
+          <!-- Título del formulario -->
+          <div class="inputs">
+            <!-- Contenedor para los campos de entrada del formulario -->
+            <input type="text" id="editNombre" class="formInput" />
+            <!-- Campo para editar el nombre del usuario...  -->
+            <input type="text" id="editDocumento" class="formInput" />
+            <input type="text" id="editTelefono" class="formInput" />
+            <input type="email" id="editCorreo" class="formInput" />
+            <button type="button" class="btn btn-save" onclick="guardarCambios()">
+              + guardar cambios
+            </button>
+            <!-- Botón para guardar los cambios -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCION DE PRODUCTOS -->
+
+      <section class="productos">
+        <header class="app-header">
+          <h1 class="app-title">📦 Inventario</h1>
+        </header>
+        <!-- Formulario para agregar productos al inventario -->
+        <form class="form-card" id="formProducto">
+          <h2 class="form-title">Agregar producto</h2>
+          <div class="form-row">
+            <input type="text" id="nombre" placeholder="Nombre producto" class="form-input" />
+            <input type="number" id="precio" placeholder="Precio ($)" step="0.01" class="form-input" />
+            <input type="number" id="cantidad" placeholder="Cantidad" class="form-input" />
+            <button type="submit" class="btn btn-primary">+ Agregar</button>
+            <!-- Botón para agregar el producto al inventario -->
+          </div>
+        </form>
+
+        <!-- Tabla para mostrar los productos del inventario -->
+
+        <div class="table-container">
+          <table class="inventory-table" id="tablaProductos">
+            <thead> <!-- Encabezado de la tabla -->
+              <tr> <!-- Fila del encabezado -->
+                <th class="col-name">Nombre</th> <!-- Columna para el nombre del producto -->
+                <th class="col-price">Precio</th>
+                <th class="col-cantidad">cantidad</th>
+                <th class="col-actions">Acciones</th>
+              </tr>
+            </thead>
+            <tbody> <!-- Cuerpo de la tabla donde se agregarán los productos -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main> <!-- Fin del contenedor principal del dashboard -->
+  </div> <!-- Fin del contenedor principal del dashboard -->
+  <script src="dashboard.js"></script>
+  <script src="productos.js"></script> <!-- Enlace al archivo JavaScript -->
 </body>
+
 </html>
