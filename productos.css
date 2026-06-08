@@ -1,29 +1,31 @@
 :root {
---color-bg: #f4f6f9;
---color-surface: #ffffff;
---color-border: #e2e8f0;
---color-text-primary: #1a202c;
---color-text-secondary: #64748b;
---color-text-muted: #94a3b8;
+--color-bg: #f4f6f9;  /* Color de fondo del formulario */
+--color-surface: #ffffff;  /* Color de fondo del dashboard */
+--color-border: #e2e8f0;  /* Color de borde del dashboard */
+--color-text-primary: #1a202c;  /* Color de texto primario del dashboard */
+--color-text-secondary: #64748b;   /* Color de texto secundario del dashboard */
+--color-text-muted: #94a3b8;   /* Color de texto mutido del dashboard */
 
---color-primary: #3b82f6;
---color-primary-hover: #2563eb;
---color-edit: #10b981;
---color-edit-hover: #059669;
---color-delete: #ef4444;
---color-delete-hover: #dc2626;
+--color-primary: #3b82f6;     /* Color primario del boton */
+--color-primary-hover: #2563eb;   /* Color primario del boton (hover) */
+--color-edit: #10b981;     /* Color de boton editar */
+--color-edit-hover: #059669;   /* Color de boton editar (hover) */
+--color-delete: #ef4444;     /* Color de boton eliminar */
+--color-delete-hover: #dc2626;   /* Color de boton eliminar (hover) */
 
---color-row-hover: #f8fafc;
---color-header-bg: #f1f5f9;
+--color-row-hover: #f8fafc;   /* Color de fondo de la fila cuando se pasa el mouse encima */
+--color-header-bg: #f1f5f9;   /* Color de fondo de la cabecera de la tabla */
 
---radius-sm: 6px;
+--radius-sm: 6px;     /* Radio de los bordes de los botones */
 --radius-md: 10px;
 --radius-lg: 14px;
 
---shadow-card: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.05);
---shadow-btn: 0 1px 3px rgba(0,0,0,0.15);
+--shadow-card: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.05);   /* Sombra de los bordes de la tabla */
+--shadow-btn: 0 1px 3px rgba(0,0,0,0.15);   /* Sombra de los bordes de los botones */
 
 }
+
+/* ESTILO DE LA PAGINA */
 .productos {
     max-width: 1200px;
     margin: 0 auto;
@@ -32,11 +34,13 @@
     gap: 24px;
 }
 
+/* ESTILO DE LA CABECERA */
 .app-header {
     text-align: center;
     padding: 8px 0 4px;
 }
 
+/* ESTILO DE EL TITULO */
 .app-title {
     color: var(--color-text-primary);
     font-size: 2rem;
@@ -57,6 +61,7 @@ box-shadow: var(--shadow-card);
 margin-bottom: 30px;
 }
 
+/* Titulo del formulario */
 .form-title {
     color: var(--color-text-secondary);
     font-size: 0.85rem;
@@ -67,6 +72,7 @@ margin-bottom: 30px;
     margin-bottom: 14px;
 }
 
+/* Estilo del contenedor para los campos de entrada del formulario */
 .form-row {
     display: flex;
     flex-wrap: wrap;
@@ -74,9 +80,11 @@ margin-bottom: 30px;
     margin-bottom: 16px;
 }
 
+/* Estilos de los campos de entrada del formulario */
 .form-input {
-    flex: 1;
-    min-width: 160px;
+    flex: 1 1 180px;
+    min-width: 0;
+    max-width: 100px;
     height: 42px;
     padding: 0 14px;
     font-size: 0.9rem;
@@ -88,10 +96,12 @@ margin-bottom: 30px;
     outline: none;
 }
 
+/* Estilo de los campos de entrada del formulario con placeholder */
 .form-input::placeholder {
 color: var(--color-text-muted);
 }
 
+/* Estilo de los campos de entrada del formulario con focus */
 .form-input:focus {
 border-color: var(--color-primary);
 box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
@@ -117,10 +127,12 @@ background: #fff;
     gap: 6px;
 }
 
+
 .btn:active {
     transform: scale(0.97);
 }
 
+/* boton de guardar*/ 
 .btn-primary {
     background-color: #0f172A;
     color: #fff;
@@ -134,12 +146,14 @@ background: #fff;
     font-size: 0.8rem;
 }
 
+/* boton de editar productos */
 .btn-editar {
     background-color: #ecfdf5;
     color: var(--color-edit);
     border: 1px solid #a7f3d0;
 }
 
+/* boton de eliminar productos */
 .btn-eliminar {
     background-color: #fef2f2;
     color: var(--color-delete);
@@ -172,14 +186,10 @@ background: #fff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* Estilos para la tabla */
-
-.table-wrapper {
-    overflow-x: auto;
-}
 
 .inventory-table {
     width: 100%;
@@ -234,6 +244,8 @@ background: #fff;
     gap: 16px;
     align-items: center;
 }
+
+
 
 
 

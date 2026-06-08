@@ -4,12 +4,12 @@ let indiceEditar = null;
 
 // USUARIO ACTIVO
 document.getElementById("usuarioActivo").textContent =  
-localStorage.getItem("usuarioActivo");
+localStorage.getItem("usuarioActivo"); // Nombre de usuario que inicia sesion mostrado en el sidebar
 
 //cambio de modulo // 
 
 function mostrarModulo(modulo) {
-  document.getElementById("modUsuarios").style.display = "none";
+  document.getElementById("modUsuarios").style.display = "none";  // 
   document.getElementById("modProductos").style.display = "none";
 
   if (modulo === "usuarios") {
@@ -100,6 +100,12 @@ function cerrarSesion() {
 
 // INICIO
 cargarUsuarios();
+
+// Toggle sidebar
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('active');
+}
 
 
 // mostrar productos al cargar la pagina// 

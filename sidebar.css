@@ -127,3 +127,71 @@ usuario activo
     color: #cbd5e1;
     transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+
+  /* Sidebar oculto fuera de pantalla */
+  .sidebar {
+    position: fixed !important;
+    width: 230px !important;
+    height: 100vh;
+    left: -230px;           /* ← oculto a la izquierda */
+    transition: left 0.28s ease;
+    flex-direction: column; /* vuelve a columna */
+    z-index: 1000;
+  }
+
+  /* Cuando está abierto */
+  .sidebar.open {
+    left: 0;                /* ← desliza hacia adentro */
+  }
+
+  /* Overlay oscuro detrás del sidebar */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 999;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  /* Botón hamburger */
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 998;
+    background: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .container {
+    margin-left: 0 !important;
+    padding: 20px 12px;
+    padding-top: 64px; /* espacio para el hamburger */
+  }
+}
+
+/* El hamburger solo existe en móvil */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+  .sidebar-overlay {
+    display: none !important;
+  }
+}
