@@ -82,9 +82,9 @@ margin-bottom: 30px;
 
 /* Estilos de los campos de entrada del formulario */
 .form-input {
-    flex: 1 1 180px;
-    min-width: 0;
-    max-width: 100px;
+    flex: 1;
+    min-width: 180px;
+    max-width: auto;
     height: 42px;
     padding: 0 14px;
     font-size: 0.9rem;
@@ -136,6 +136,7 @@ background: #fff;
 .btn-primary {
     background-color: #0f172A;
     color: #fff;
+    white-space: nowrap;  /* Evita que el texto se ajuste a la anchura del botón */
 }
 
 /* Botones de tabla — más pequeños */
@@ -228,9 +229,9 @@ background: #fff;
 }
 
 /* Proporciones de columnas */
-.col-name    { width: 40%; }
-.col-price   { width: 20%; }
-.col-cantidad { width: 15%; }
+.col-name    { width: 25%; }
+.col-price   { width: 25%; }
+.col-cantidad { width: 25%; }
 .col-actions { width: 25%; }
 
 .celda-precio {

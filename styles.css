@@ -205,9 +205,9 @@ body {
 /* proporciones de las columnas */
 
 .colName      {  width: 30%;}
-.colCorreo    {  width: 25%;}
+.colCorreo    {  width: 20%;}
 .colTelefono  {  width: 15%;}
-.colDocumento {  width: 10%;}
+.colDocumento {  width: 15%;}
 .colAcciones  {  width: 10%;}
 .colUsuario   {  width: 10%;}
 
@@ -293,7 +293,7 @@ body {
 }
 
 /* ================================
-   RESPONSIVE — BREAKPOINTS
+  RESPONSIVE — BREAKPOINTS
 ================================ */
 
 /* ── 940px: formulario de productos se quiebra ── */
@@ -303,14 +303,14 @@ body {
   }
 
   .form-input {
-    flex: 1 1 160px;   /* crece y se encoge, mínimo 160px */
-    max-width: calc(50% - 6px); /* máximo 2 por fila */
+    flex: 1 1 45%;   /* crece y se encoge, mínimo 160px */
     min-width: 0;
   }
 
   .btn-primary {
     flex: 1 1 100%;    /* botón ocupa fila completa */
     max-width: 100%;
+    min-width: 140px;
   }
 }
 
@@ -322,47 +322,8 @@ body {
     flex-direction: column;
   }
 
-  /* Sidebar horizontal arriba */
-  .sidebar {
-    position: relative !important; /* ← sale del fixed */
-    width: 100% !important;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 16px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  /* Brand más compacto */
-  .sidebar-brand {
-    padding: 0;
-    border-bottom: none;
-    border-right: 1px solid rgba(255,255,255,0.1);
-    padding-right: 16px;
-  }
-
   .sidebar-title {
     font-size: 1rem;
-  }
-
-  /* Botones en fila */
-  .cont-sidebar {
-    flex-direction: row;
-    flex: none;
-    padding: 0;
-    gap: 8px;
-  }
-
-  /* Usuario activo en fila */
-  .usuarioActivo {
-    flex-direction: row;
-    padding: 0;
-    border-top: none;
-    border-left: 1px solid rgba(255,255,255,0.1);
-    padding-left: 16px;
-    gap: 10px;
   }
 
   /* Ocultar icono SVG en móvil para ahorrar espacio */
@@ -370,26 +331,12 @@ body {
     display: none;
   }
 
-  /* Main sin margen izquierdo */
-  .container {
-    margin-left: 0 !important;
-    padding: 20px 12px;
-  }
+  
 
-  /* Tablas con scroll horizontal */
-  .tableContainer,
-  .table-container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
+
 
 /* ── 600px: inputs full width ── */
 @media (max-width: 600px) {
-  .form-input {
-    max-width: 100%;   /* cada input ocupa su propia fila */
-    flex: 1 1 100%;
-  }
 
   .sidebar-title {
     font-size: 0.85rem;
@@ -409,4 +356,12 @@ body {
     font-size: 0.72rem;
     padding: 6px 8px;
   }
+  .form-input {
+    flex: 1 1 100%;   /* crece y se encoge, mínimo 160px */
+    min-width: 0;
+  }
+  .btn-primary {
+    flex: 1 1 100%;    /* botón ocupa fila completa */
+  }
+}
 }

@@ -17,6 +17,12 @@ function mostrarModulo(modulo) {
   } else {
     document.getElementById("modProductos").style.display = "block";
   }
+
+  // cerrar el sidebar en movil
+  if (window.innerWidth <= 768) {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('active');
+  }
 }
 
 // =====================
