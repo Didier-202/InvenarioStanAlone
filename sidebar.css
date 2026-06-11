@@ -63,7 +63,8 @@
 }
 
 .btn-productos, 
-.btn-usuarios {
+.btn-usuarios,
+.btn-dashboard {
     background-color: #374151;
     color: white;
     width: 100%;
@@ -180,7 +181,7 @@ usuario activo
   }
 
   .container {
-    margin-left: 0 !important;
+    margin-left: 0 !important;  /* ← oculto a la izquierda */
     padding: 20px 12px;
     padding-top: 64px; /* espacio para el hamburger */
   }
@@ -192,6 +193,6 @@ usuario activo
     display: none;
   }
   .sidebar-overlay {
-    display: none !important;
+    display: none !important;  
   }
 }

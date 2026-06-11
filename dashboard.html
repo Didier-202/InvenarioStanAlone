@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS usuarios-->
   <link rel="stylesheet" href="productos.css"> <!-- Enlace al archivo CSS productos-->
   <link rel="stylesheet" href="sidebar.css"> <!-- Enlace al archivo CSS sidebar-->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- Fuente Inter para un diseño moderno -->
+  <link rel="stylesheet" href="dashboard.css">  <!-- Enlace al archivo CSS dashboard-->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">   <!-- Fuente Inter para un diseño moderno -->
 </head>
 
 <body class="dashboard-page">
@@ -22,6 +22,7 @@
         <h2 class="sidebar-title">Inventario</h2>    <!-- Título -->
       </div>
       <div class="cont-sidebar">
+        <button class="btn btn-dashboard" onclick="mostrarModulo('dashboard')">dashboard</button>         <!-- Botón para mostrar el módulo de dashboard -->
         <button class="btn btn-productos" onclick="mostrarModulo('productos')">productos</button>         <!-- Botón para mostrar el módulo de productos -->
         <button class="btn btn-usuarios" onclick="mostrarModulo('usuarios')">usuarios</button>         <!-- Botón para mostrar el módulo de usuarios -->
       </div>
@@ -44,9 +45,36 @@
 
     <main class="container">       <!-- Contenedor principal -->
 
+      <!-- Seccion del dashboard --> 
+
+      <section class="inicio" id="modDashboard">  <!--seccion de dasboard (resumen de la pagina)-->
+        <header class="header">
+          <h2 class="titulo">Dashboard</h2>
+        </header>
+
+        <div class="cardDashboard">
+          <div class="card">
+            <h3 class="title">Usuarios</h3>
+            <p id="cantidadUsuarios" class="cantUsuarios"></p>
+          </div>
+          <div class="card">
+            <h3 class="title">referencias</h3>
+            <p id="cantidadProductos" class="cantProductos"></p>
+          </div>
+          <div class="card">
+            <h3 class="title">Unidades</h3>
+            <p id="cantidadUnidades"></p>
+          </div>
+          <div class="card">
+            <h3 class="title">Valor Inventario</h3>
+            <p id="valorInventario" class="valor"></p>
+          </div>
+        </div>
+      </section>  
+
       <section class="usuarios" id="modUsuarios">  <!-- SECCION DE USUARIOS -->
         <header class="header"> 
-          <h1 class="titulo">Usuarios</h1>     <!-- Título de la sección -->
+          <h2 class="titulo">Usuarios</h2>     <!-- Título de la sección -->
         </header>
 
         <div class="tableContainer">      <!-- Contenedor para la tabla de usuarios -->
@@ -82,7 +110,7 @@
 
       <section class="productos" id="modProductos">  <!-- SECCION DE PRODUCTOS -->
         <header class="app-header">
-          <h1 class="app-title">📦 Productos </h1>     <!-- Título de la sección -->
+          <h2 class="app-title">📦 Productos </h2>     <!-- Título de la sección -->
         </header>
         <!-- Formulario para agregar productos al inventario -->
         <form class="form-card" id="formProducto">  <!-- Formulario para agregar productos al inventario -->
@@ -116,6 +144,7 @@
   </div> <!-- Fin del contenedor principal del dashboard -->
   <script src="productos.js"></script> <!-- Enlace al archivo JavaScript productos-->
   <script src="dashboard.js"></script>   <!-- Enlace al archivo JavaScript principal (dasboard.js) -->
+  <script src="inicio.js"></script>   <!-- Enlace al archivo JavaScript principal (inicio.js) -->
 </body>
 
 </html>

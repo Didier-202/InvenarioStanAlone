@@ -9,14 +9,19 @@ localStorage.getItem("usuarioActivo"); // Nombre de usuario que inicia sesion mo
 //cambio de modulo // 
 
 function mostrarModulo(modulo) {
-  document.getElementById("modUsuarios").style.display = "none";  // 
+  document.getElementById("modUsuarios").style.display = "none";   // 
   document.getElementById("modProductos").style.display = "none";
+  document.getElementById("modDashboard").style.display = "none";
 
   if (modulo === "usuarios") {
     document.getElementById("modUsuarios").style.display = "block";
-  } else {
+  } else if (modulo === "productos") {
     document.getElementById("modProductos").style.display = "block";
   }
+  else if (modulo === "dashboard") {
+    document.getElementById("modDashboard").style.display = "block";
+  }
+
 
   // cerrar el sidebar en movil
   if (window.innerWidth <= 768) {
@@ -33,7 +38,7 @@ function cargarUsuarios() {
   const tabla = document.getElementById("tablaUsuarios");  // Obtener referencia a la tabla
   tabla.innerHTML = "";
 
-  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];  //Obtener datos del local Storage ([vacio] si no hay datos)
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];  //Obtener datos del local Storage y los convierte en array ([vacio] si no hay datos)
 // Recorrer usuarios y mostrar en tabla
   usuarios.forEach((u, index) => {
     // Agregar fila a la tabla por cada usuario
@@ -116,10 +121,16 @@ function toggleSidebar() {
 
 // mostrar productos al cargar la pagina// 
 window.onload = function() {
-  mostrarModulo("productos");  
+  mostrarModulo("dashboard");  
 }
 
 
 
 
+let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+console.log(usuarios);
+
+console.log(typeof usuarios);
+
+console.log(Array.isArray(usuarios));
